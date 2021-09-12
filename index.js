@@ -11,7 +11,7 @@ const config = require('./config');
 
 // Bota start verdiğinizde atılan ilk mesaj
 bot.start((ctx) => {
-    return ctx.reply("Hey");
+    return ctx.reply("Hello /button");
 });
 
 
@@ -29,7 +29,7 @@ bot.command('botsohbet', async (ctx, next) => {
         source: './dosyalar/botsohbet.mp4'
     }, {
         filename: 'botsohbet.mp4',
-        caption: 'https://t.me/botsohbet'
+        caption: 'https://t.me/Artekasto_botgroup'
     })
     return next()
     
@@ -43,10 +43,10 @@ bot.command('komut', async (ctx, next) => {
 
 
 async function searchMessage(ctx){
-    await ctx.reply('<b>Hangi arama motorunu kullanmak istiyorsunuz?</b>', {
+    await ctx.reply('<b>Hangi Gruba Katılmak istersiniz?</b>', {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
-            [Markup.button.url('Google', 'www.google.com')],
+            [Markup.button.url('channel', 'https://t.me/Artekasto_botchannel')],
             [ Markup.button.callback('Yok ben almıyım.', 'kapat'), Markup.button.callback('Diğer', 'all')]
         ])
     })
@@ -55,9 +55,9 @@ async function searchMessage(ctx){
 
 bot.action('all', async (ctx) => {
     await ctx.answerCbQuery()
-    await ctx.editMessageText('Yandex, DuckDuckGo, Yahoo ?', Markup.inlineKeyboard([
-        [Markup.button.url('Yandex', 'https://yandex.com.tr/'), Markup.button.url('DuckDuckGo', 'https://duckduckgo.com/')],
-        [Markup.button.url('Yahoo', 'https://www.yahoo.com/')],
+    await ctx.editMessageText('channel, group, help && support ?', Markup.inlineKeyboard([
+        [Markup.button.url('group', 'https://t.me/Artekasto_botgroup'), Markup.button.url('DuckDuckGo', 'https://duckduckgo.com/')],
+        [Markup.button.url('help && support', 'https://t.me/Artekasto_botgroup')],
         [Markup.button.callback('Geri', 'geri')]
     ]))
 })
